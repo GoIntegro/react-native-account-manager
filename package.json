@@ -1,0 +1,18 @@
+{
+  "name": "react-native-account-manager",
+  "version": "1.0.0",
+  "description": "React Native package to get access to android accountManager inspired on cordova-android-accountmanager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "account",
+    "manager",
+    "android"
+  ],
+  "author": "nicsefer",
+  "license": "ISC"
+}
