@@ -73,7 +73,7 @@ include ':app'
 ```
 import AccountManager from 'react-native-account-manager';
 
-AccountManager.addAccountExplicitly('gointegro', 'gointegro_user', 'gointegro_pass')
+AccountManager.addAccountExplicitly('accountName', 'userName', 'userPassword')
 .then((account) => {
   // console.log('account successfully added', account)
   AccountManager.removeAccount(account).then(() => {
@@ -90,7 +90,7 @@ import AccountManager from 'react-native-account-manager';
 
 AccountManager.getAccountsByType('accountName').then((accounts) => {
   // console.log('available accounts', accounts);
-  let firstAccount = data[0];
+  let [firstAccount] = accounts;
 
   AccountManager.getUserData(firstAccount, 'storedKey').then((storedData) => {
     // console.log('stored data for storeKey', storedData);
