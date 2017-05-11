@@ -69,13 +69,16 @@ include ':app'
   }
 ```
 
-## Basic Usage (Creating an account)
+## Basic Usage (Creating, removing an account)
 ```
 import AccountManager from 'react-native-account-manager';
 
 AccountManager.addAccountExplicitly('gointegro', 'gointegro_user', 'gointegro_pass')
 .then((account) => {
-  // console.log('account succesfully added', account)
+  // console.log('account successfully added', account)
+  AccountManager.removeAccount(account).then(() => {
+    // console.log('account successfully removed');
+    })
 }).catch((e) => {
   // console.log('fail to add account', e);
 });
@@ -93,7 +96,7 @@ AccountManager.getAccountsByType('accountName').then((accounts) => {
     // console.log('stored data for storeKey', storedData);
 
     AccountManager.setUserData(account, 'storedKey', JSON.stringify({foo: "bar"})).then(() => {
-      // console.log('data succesfully stored');
+      // console.log('data successfully stored');
       })
     });
   })
