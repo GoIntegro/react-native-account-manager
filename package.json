@@ -3,8 +3,9 @@
   "version": "1.0.5",
   "description": "React Native package to get access to android accountManager inspired on cordova-android-accountmanager",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoIntegro/react-native-account-manager"
   },
   "keywords": [
     "react",
