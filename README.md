@@ -34,7 +34,7 @@ react-native link react-native-account-manager
 ```diff
 dependencies {
     ...
-    compile project(':react-native-account-manager')
+    implementation project(':react-native-account-manager')
 }
 ```
 
