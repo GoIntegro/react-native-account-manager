@@ -19,6 +19,10 @@ npm install --save react-native-account-manager
 
 ## Automatically link
 
+#### With React Native 0.61+
+
+No addiontional steps required.
+
 #### With React Native 0.27+
 
 ```shell
