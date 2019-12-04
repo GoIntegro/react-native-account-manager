@@ -12,4 +12,6 @@ export interface RNAccountManager {
   getUserData(accountObject: RNAccountManagerAccount, key: string): Promise<{ value: string }>
 }
 
-export default RNAccountManager
+declare const manager: RNAccountManager
+
+export default manager
