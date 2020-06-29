@@ -106,3 +106,9 @@ AccountManager.getAccountsByType('accountName').then((accounts) => {
   })
 
 ```
+
+# Troubleshooting
+
+### `uid XXXX cannot explicitly add accounts of type: xxxx`
+
+This means you're trying to access an account created with the same type but by an app with a different signature. The signature is defined in the signing of the app, defined by the keystore or upload key uploaded to the Play Store. You cannot solve this issue, all apps that share an account **must** have the same signature. [Learn more](https://developer.android.com/reference/android/accounts/AccountManager)
