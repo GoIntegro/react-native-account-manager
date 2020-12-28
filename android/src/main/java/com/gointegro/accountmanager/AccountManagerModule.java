@@ -14,6 +14,7 @@ import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
 
 import java.io.IOException;
+import java.lang.SecurityException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -89,17 +90,22 @@ public class AccountManagerModule extends ReactContextBaseJavaModule {
 		Integer index = indexForAccount(account);
 		Bundle userdata = new Bundle();
 
-		if(false == manager.addAccountExplicitly(account, password, userdata)){
-			promise.reject("Account with username already exists!");
-			return;
+		try {
+			if(false == manager.addAccountExplicitly(account, password, userdata)){
+				promise.reject("Account with username already exists!");
+				return;
+			}
+
+			WritableNativeMap result = new WritableNativeMap();
+			result.putInt("_index", (int)index);
+			result.putString("name", account.name);
+			result.putString("type", account.type);
+
+			promise.resolve(result);
+		} catch(SecurityException e){
+			promise.reject(e.getLocalizedMessage());
 		}
 
-		WritableNativeMap result = new WritableNativeMap();
-		result.putInt("_index", (int)index);
-		result.putString("name", account.name);
-		result.putString("type", account.type);
-
-		promise.resolve(result);
 		return;
 	}
 
