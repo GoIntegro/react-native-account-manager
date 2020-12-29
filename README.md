@@ -73,6 +73,29 @@ include ':app'
   }
 ```
 
+## Additional Steps (Android)
+
+1. In your AndroidManifest file, add this service in <application />
+```
+<service android:name="com.gointegro.accountmanager.AuthenticatorService">
+   <intent-filter>
+       <action android:name="android.accounts.AccountAuthenticator" />
+   </intent-filter>
+   <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator" />
+</service>
+```
+
+2. Create authenticator.xml file in res/xml folder and add this code
+```
+<?xml version="1.0" encoding="utf-8"?>
+<account-authenticator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="{your app package name}"
+    android:icon="@mipmap/ic_launcher_round"
+    android:smallIcon="@mipmap/ic_launcher_round"
+    android:label="@string/app_name"/>
+```
+
 ## Basic Usage (Creating, removing an account)
 ```
 import AccountManager from 'react-native-account-manager';
